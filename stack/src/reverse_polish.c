@@ -23,7 +23,7 @@ int reverse_polish(char* polish, size_t size, char* reverse_polish)
       while (true) {
         if (!GetTop(stack, &temp)) break;
         if(temp == '/' || temp == '*' || 
-          (temp == '+' || temp == '-') && (op == '+' || op == '-')) {
+          ((temp == '+' || temp == '-') && (op == '+' || op == '-'))) {
             Pop(stack, &reverse_polish[j++]);
         }else break;
       }

@@ -1,0 +1,2 @@
+all: 
+	cd stack && $(MAKE)

@@ -28,6 +28,13 @@ int Pop(Stack *stack, void *data) {
   return 1;
 }
 
+int GetTop(Stack *stack, void *data) {
+  if (stack->top < 0)
+    return 0;
+  memcpy(data, stack->data[stack->top], stack->data_size);
+  return 1;
+}
+
 int FreeStack(Stack *stack) {
   while (stack->top >= 0) {
     free(stack->data[stack->top--]);

@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
     p.y = i * 10;
     Push(stack, &p);
   }
-
+  
   for (int j = 0; j < capacity; j++) {
     Pop(stack, &p);
     printf("x: %d, y: %d\n", p.x, p.y);

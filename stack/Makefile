@@ -14,7 +14,7 @@ INC_DIR = ./inc
 OUT_DIR = ./out
 
 # 目标文件
-OBJ_FILES = $(OUT_DIR)/stack.o $(OUT_DIR)/test.o
+OBJ_FILES = $(OUT_DIR)/stack.o $(OUT_DIR)/test.o $(OUT_DIR)/reverse_polish.o
 
 # 默认目标，生成可执行文件
 all: $(OUT_DIR)/test

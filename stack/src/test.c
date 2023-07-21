@@ -1,5 +1,6 @@
 #include "stack.h"
 #include <stdio.h>
+#include <reverse_polish.h>
 
 int main(int argc, char *argv[]) {
   typedef struct {
@@ -20,5 +21,10 @@ int main(int argc, char *argv[]) {
     Pop(stack, &p);
     printf("x: %d, y: %d\n", p.x, p.y);
   }
+
+  char polish[] = "1+(2+3)/4*(1*2+9*8)/2";
+  char rp[sizeof(polish)];
+  reverse_polish(polish, sizeof(polish), rp);
+  printf("%s\n",rp);
   return 1;
 }

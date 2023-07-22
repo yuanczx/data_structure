@@ -2,5 +2,5 @@
 #define INSERT_SORT_H
 
 #include <stdlib.h>
-void InsertSort(int* array,size_t size);
+void insert_sort(int *array, size_t size);
 #endif

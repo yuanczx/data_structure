@@ -20,6 +20,6 @@
 *.hex
 
 compile_commands.json
-out/*
+out
 .cache/*
 .vscode/*

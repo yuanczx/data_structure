@@ -1,7 +1,8 @@
 #include "bubble_sort.h"
+#include "heap_sort.h"
 #include "insert_sort.h"
-#include "select_sort.h"
 #include "quick_sort.h"
+#include "select_sort.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -32,7 +33,14 @@ int main(int argc, char *argv[]) {
 
   memcpy(temp, array, sizeof(array));
   printf("\nQuick sort:\n");
-  quick_sort(temp,0, length-1);
+  quick_sort(temp, 0, length - 1);
+  for (int i = 0; i < length; i++) {
+    printf("%d, ", temp[i]);
+  }
+
+  memcpy(temp, array, sizeof(array));
+  printf("\nHeap sort:\n");
+  heap_sort(temp, length);
   for (int i = 0; i < length; i++) {
     printf("%d, ", temp[i]);
   }

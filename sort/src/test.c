@@ -3,6 +3,7 @@
 #include "insert_sort.h"
 #include "quick_sort.h"
 #include "select_sort.h"
+#include "merge_sort.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -28,6 +29,9 @@ int main(int argc, char *argv[]) {
   test_sort(array, length, "Bubble sort", select_sort);
   test_sort(array, length, "Quick sort", quick_sort2);
   test_sort(array, length, "Heap sort", heap_sort);
+  
+  int a[] = {1, 2, 3, 4, 1, 2, 3, 5, 9, 10, 12, 12, 98, 100};
+  test_sort(a, length, "Merge sort", merge_sort);
 
   return 0;
 }

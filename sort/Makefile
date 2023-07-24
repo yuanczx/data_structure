@@ -16,7 +16,7 @@ OUT_DIR = ./out
 # 目标文件
 OBJ_FILES = $(OUT_DIR)/insert_sort.o $(OUT_DIR)/test.o $(OUT_DIR)/bubble_sort.o\
 						$(OUT_DIR)/select_sort.o $(OUT_DIR)/utils.o $(OUT_DIR)/quick_sort.o\
-						$(OUT_DIR)/heap_sort.o
+						$(OUT_DIR)/heap_sort.o $(OUT_DIR)/merge_sort.o
 
 # 默认目标，生成可执行文件
 all: $(OUT_DIR)/test
@@ -29,6 +29,8 @@ $(OUT_DIR)/test: $(OBJ_FILES)
 $(OUT_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
+run: all
+	./out/test
 # 清理中间文件和可执行文件
 clean:
 	rm -f $(OUT_DIR)/*.o $(OUT_DIR)/test

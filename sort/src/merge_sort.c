@@ -11,8 +11,8 @@ void merge(int arr[], int left, int mid, int right) {
     else arr[left+k] = copy[j++];
     k++;
   }
-  if (i <= mid-left) {
-    memcpy(&arr[left+k], &copy[i], sizeof(int)*(mid-left-i));
+  if (i < mid-left+1) {
+    memcpy(&arr[left+k], &copy[i], sizeof(int)*(mid-left+1-i));
   }else if (j < length) {
     memcpy(&arr[left+k], &copy[j], sizeof(int)*(length-j));
   }
@@ -21,8 +21,8 @@ void merge(int arr[], int left, int mid, int right) {
 void merge_sort_r(int arr[],int low,int high){
   if (low<high) {
     int mid = (low+high)/2;
-    merge_sort_r(arr, low,mid);
-    merge_sort_r(arr, mid+1,high);
+    merge_sort_r(arr, low, mid);
+    merge_sort_r(arr, mid+1, high);
     merge(arr, low, mid, high);
   }
 }

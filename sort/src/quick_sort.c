@@ -26,3 +26,8 @@ void quick_sort(int arr[], int low, int high) {
         quick_sort(arr, pi + 1, high);
     }
 }
+
+
+void quick_sort2(int arr[], int size) {
+  quick_sort(arr, 0, size-1);
+}

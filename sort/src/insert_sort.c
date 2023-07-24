@@ -1,7 +1,7 @@
 #include "insert_sort.h"
 #include <stdio.h>
 
-void insert_sort(int *array, size_t size) {
+void insert_sort(int *array, int size) {
   int i, j;
   for (i = 1; i < size; i++) {
     if (array[i] < array[i - 1]) {

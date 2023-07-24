@@ -27,6 +27,9 @@ $(OUT_DIR)/test: $(OBJ_FILES)
 $(OUT_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
+run: all
+	./out/test
+
 # 清理中间文件和可执行文件
 clean:
 	rm -f $(OUT_DIR)/*.o $(OUT_DIR)/test

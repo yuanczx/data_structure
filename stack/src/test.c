@@ -26,5 +26,5 @@ int main(int argc, char *argv[]) {
   char rp[sizeof(polish)];
   reverse_polish(polish, sizeof(polish), rp);
   printf("%s\n",rp);
-  return 1;
+  return 0;
 }

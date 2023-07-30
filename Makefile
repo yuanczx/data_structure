@@ -1,6 +1,7 @@
 all: 
 	cd stack && $(MAKE)
 	cd sort && $(MAKE)
+	cd exercise && $(MAKE)
 
 
 run: all

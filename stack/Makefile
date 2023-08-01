@@ -13,10 +13,11 @@ INC_DIR = ./inc
 # 编译输出目录
 OUT_DIR = ./out
 
-# 目标文件
-OBJ_FILES = $(OUT_DIR)/stack.o $(OUT_DIR)/test.o $(OUT_DIR)/reverse_polish.o
+SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 
-# 默认目标，生成可执行文件
+# 目标文件
+OBJ_FILES = $(patsubst src/%.c,out/%.o,$(SRC_FILES))# 默认目标，生成可执行文件
+
 all: $(OUT_DIR)/test
 
 # 生成可执行文件

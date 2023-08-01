@@ -12,8 +12,10 @@ INC_DIR = ./inc
 # 编译输出目录
 OUT_DIR = ./out
 
+SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+
 # 目标文件
-OBJ_FILES = $(OUT_DIR)/binary_tree.o $(OUT_DIR)/test.o
+OBJ_FILES = $(patsubst src/%.c,out/%.o,$(SRC_FILES))# 默认目标，生成可执行文件
 
 # 默认目标，生成可执行文件
 all: $(OUT_DIR)/test

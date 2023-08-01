@@ -1,12 +1,8 @@
 all: 
 	cd stack && $(MAKE)
 	cd sort && $(MAKE)
+	cd tree && $(MAKE)
 	cd exercise && $(MAKE)
-
-
-run: all
-	stack/out/test
-	sort/out/test
 
 .PHONY: clean
 

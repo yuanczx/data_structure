@@ -5,18 +5,18 @@ CC = gcc
 CFLAGS = -Wall -I./inc
 
 # 源文件目录
-SRC_DIR = ./src
+SRC_DIR = src
 
 # 头文件目录
-INC_DIR = ./inc
+INC_DIR = inc
 
 # 编译输出目录
-OUT_DIR = ./out
+OUT_DIR = out
+
+SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 
 # 目标文件
-OBJ_FILES = $(OUT_DIR)/insert_sort.o $(OUT_DIR)/test.o $(OUT_DIR)/bubble_sort.o\
-						$(OUT_DIR)/select_sort.o $(OUT_DIR)/utils.o $(OUT_DIR)/quick_sort.o\
-						$(OUT_DIR)/heap_sort.o $(OUT_DIR)/merge_sort.o $(OUT_DIR)/shell_sort.o
+OBJ_FILES = $(patsubst src/%.c,out/%.o,$(SRC_FILES))
 
 # 默认目标，生成可执行文件
 all: $(OUT_DIR)/test

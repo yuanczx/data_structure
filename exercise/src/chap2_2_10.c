@@ -20,7 +20,7 @@ void solution(int list[], int p, int length){
 int main(int argc, char *argv[])
 {
   int list[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
-  int length = sizeof(list)/sizeof(int);
+  int length = sizeof(list)/sizeof(list[0]);
   solution(list, 3, length);
 
   for (int i = 0; i<length; i++) {

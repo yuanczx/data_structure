@@ -1,6 +1,11 @@
-SUBDIRS := $(wildcard */)
+all: $(wildcard ./src/*.c)
+	@for file in ./src/*.c; do\
+		file_name=$$(basename "$$file" .c);\
+		gcc -o ./out/$$file_name $$file;\
+	done
+	
 
-all:
-	@for dir in $(SUBDIRS); do\
-		$(MAKE) -C $$dir; \
-		done
+.Phony: clean
+
+clean: 
+	rm -rf out/*

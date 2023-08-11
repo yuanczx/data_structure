@@ -1,37 +1,51 @@
 # 编译器
 CC = gcc
+CPPC = g++
 
 # 编译参数
 CFLAGS = -Wall -I./inc
+
 # 源文件目录
-SRC_DIR = ./src
+SRC_DIR = src
 
 # 头文件目录
-INC_DIR = ./inc
+INC_DIR = inc
 
 # 编译输出目录
-OUT_DIR = ./out
+OUT_DIR = out
 
-SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+C_SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+CPP_SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 
 # 目标文件
-OBJ_FILES = $(patsubst src/%.c,out/%.o,$(SRC_FILES))# 默认目标，生成可执行文件
+C_OBJ_FILES = $(patsubst src/%.c,out/%.o,$(C_SRC_FILES))
+CPP_OBJ_FILES = $(patsubst src/%.cpp,out/%.o,$(CPP_SRC_FILES))
+
+# C_BINS = $(C_OBJ_FILES:.o=)
+# CPP_BINS = $(CPP_OBJ_FILES:.o=)
 
 # 默认目标，生成可执行文件
 all: $(OUT_DIR)/test
 
-# 生成可执行文件
-$(OUT_DIR)/test: $(OBJ_FILES)
-	$(CC) $(CFLAGS) -o $@ $^
+
+$(OUT_DIR)/test: $(CPP_OBJ_FILES)
+	$(CPPC) -o $@ $^
+#
+# $(C_BINS): % : %.o
+# 	$(CC) $< -o $@
+#
+# $(CPP_BINS): % : %.o
+# 	$(CPPC) $< -o $@
 
 # 编译每个源文件为目标文件
 $(OUT_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-run: all
-	./out/test
+
+$(OUT_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CPPC) $(CFLAGS) -c -o $@ $<
 
 # 清理中间文件和可执行文件
 clean:
-	rm -f $(OUT_DIR)/*.o $(OUT_DIR)/test
+	rm -rf $(OUT_DIR)/*
 

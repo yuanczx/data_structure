@@ -5,7 +5,7 @@
 void reverse(int list[], int from, int to){
   int temp;
   for (int i = 0; i<(to-from+1)/2; i++) {
-    temp = list[from+i];
+    temp = list[from + i];
     list[from+i] = list[to-i];
     list[to-i] = temp;
   }

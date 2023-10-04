@@ -1,15 +1,15 @@
 #include "insert_sort.h"
 #include <stdio.h>
 
-void insert_sort(int *array, int size) {
+void insert_sort(int arr[], int size) {
   int i, j;
   for (i = 1; i < size; i++) {
-    if (array[i] < array[i - 1]) {
-      int temp = array[i];
-      for (j = i - 1; i >= 0 && temp < array[j]; --j) {
-        array[j + 1] = array[j];
+    if (arr[i] < arr[i - 1]) {
+      int temp = arr[i];
+      for (j = i - 1; temp < arr[j]; --j) {
+        arr[j + 1] = arr[j];
       }
-      array[j + 1] = temp;
+      arr[j + 1] = temp;
     }
   }
 }
